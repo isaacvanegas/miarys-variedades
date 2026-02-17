@@ -1,0 +1,5 @@
+{
+  "name": "Miarys Variedades",
+  "description": "A comprehensive e-commerce platform featuring a public storefront with WhatsApp integration and a secured admin dashboard for product management, demonstrating Supabase integration and Node.js architecture patterns.",
+  "requestFramePermissions": []
+}
