@@ -5,6 +5,18 @@ import { Product, Category } from '../types';
 
 type Tab = 'products' | 'categories';
 
+// Interface para el formulario
+interface ProductFormState {
+  nombre: string;
+  descripcion: string;
+  precio: number;
+  mostrar_precio: boolean;
+  categorias: string;
+  fotos: string;
+  link_video: string;
+  estado: 'disponible' | 'agotado' | 'eliminado';
+}
+
 const AdminDashboard: React.FC = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<Tab>('products');
@@ -23,7 +35,8 @@ const AdminDashboard: React.FC = () => {
   const [editingCategory, setEditingCategory] = useState<Category | null>(null);
 
   // Form States (Product)
-  const [prodForm, setProdForm] = useState({
+  // FIX: Usamos el generico <ProductFormState> para que TS acepte todos los valores de estado
+  const [prodForm, setProdForm] = useState<ProductFormState>({
     nombre: '',
     descripcion: '',
     precio: 0,
@@ -31,7 +44,7 @@ const AdminDashboard: React.FC = () => {
     categorias: '', // Comma separated for UI
     fotos: '', // Comma separated for UI
     link_video: '',
-    estado: 'disponible' as const
+    estado: 'disponible'
   });
 
   // Form State (Category)
